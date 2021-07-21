@@ -6,10 +6,20 @@ unique characters.What if you cannot use addtional data structures ?
 #include <bits/stdc++.h>
 using namespace std;
 
+// O(n^2) implementation
+bool checkUnique(string s)
+{
+    for (int i = 0; i < s.length() - 1; i++)
+        for (int j = i + 1; j < s.length(); j++)
+            if (s[i] == s[j])
+                return false;
+    return true;
+}
+// O(nlogn) implementation
 bool isUnique(string s)
 {
     sort(s.begin(), s.end());
-    for (int i = 0; i < s.length(); i++)
+    for (int i = 0; i < s.length() - 1; i++)
         if (s[i] == s[i + 1])
             return false;
     return true;
@@ -17,12 +27,12 @@ bool isUnique(string s)
 
 int main()
 {
-    string s; 
+    string s;
     cin >> s;
 
-    if(isUnique(s)){
+    if (isUnique(s))
         cout << "true";
-    } else {
+    else
         cout << "false";
-    }
+    
 }
