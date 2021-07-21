@@ -15,7 +15,7 @@ bool checkUnique(string s)
                 return false;
     return true;
 }
-// O(nlogn) implementation
+// O(nlogn) implementation O(n^n) in worst case (Quicksort)
 bool isUnique(string s)
 {
     sort(s.begin(), s.end());
