@@ -2,6 +2,7 @@
     "files.associations": {
         "iostream": "cpp"
     },
+    "peacock.color": "#268bff",
     "workbench.colorCustomizations": {
         "activityBar.activeBackground": "#59a6ff",
         "activityBar.activeBorder": "#ffdfee",
@@ -17,6 +18,5 @@
         "titleBar.activeForeground": "#e7e7e7",
         "titleBar.inactiveBackground": "#268bff99",
         "titleBar.inactiveForeground": "#e7e7e799"
-    },
-    "peacock.color": "#268bff"
+    }
 }

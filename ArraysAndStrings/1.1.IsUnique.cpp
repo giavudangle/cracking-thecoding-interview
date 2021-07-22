@@ -1,38 +1,25 @@
 /*
-1.1-IsUnique : Implement an algorithm to determine if a string has all
-unique characters.What if you cannot use addtional data structures ?
+1.3-URLify : Write a method to replace all spaces in a string with
+%20.You may assume that the string has sufficient space at the end
+to hold the additional characters,and that you given the "true"
+length of the string.(Note : If implementing in Java,please use a character array
+so that you can perform that operation in place)
+EXAMPLE : 
+Input : "Mr John Smith   "
+Output : 
+
 */
 
-#include <bits/stdc++.h>
+
+#include <bits/
 using namespace std;
 
-// O(n^2) implementation
-bool checkUnique(string s)
-{
-    for (int i = 0; i < s.length() - 1; i++)
-        for (int j = i + 1; j < s.length(); j++)
-            if (s[i] == s[j])
-                return false;
-    return true;
-}
-// O(nlogn) implementation O(n^n) in worst case (Quicksort)
-bool isUnique(string s)
-{
-    sort(s.begin(), s.end());
-    for (int i = 0; i < s.length() - 1; i++)
-        if (s[i] == s[i + 1])
-            return false;
-    return true;
-}
+
 
 int main()
-{
-    string s;
-    cin >> s;
+{  
+    string s = "Mr John Smit   ";
+    cout << s.
 
-    if (isUnique(s))
-        cout << "true";
-    else
-        cout << "false";
-    
+    return 0;
 }
