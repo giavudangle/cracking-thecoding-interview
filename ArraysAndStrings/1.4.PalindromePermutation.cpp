@@ -4,16 +4,30 @@ is a permutation of a palindrome.A palindrome is a word or phrase that is the sa
 and backwards.A permutation is rearrangement of letters.The palindrome does not need to be 
 limited to just dictionary words.
 EXAMPLE :
-Input  : Tact Coa
+Input  : Tact Coma
 Output : True (permutations : "taco cat", "atco cta", ...)
 */
 
 
 #include <bits/stdc++.h>
-using namespace std;
+const int CHAR_NUMS = 256;
+int main(){
+    
+    std::string str = "tact coa";
+    int c = 0;
+    std::vector<char> counter = std::vector<char>(CHAR_NUMS);
+    for(int i=0;i <str.length();i++){
+        if(str[i] == ' ') continue;
+        counter[str[i]]++;
+    }
+
+    for (int i=0;i<CHAR_NUMS;i++){
+        if(counter[i] == 1)
+            c++;
+    }
+    c > 1 ? std::cout<< "No" : std::cout<< "Yes";
 
 
-
-int main()
-{  
+    return 1;
+} 
 
