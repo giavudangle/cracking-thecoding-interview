@@ -13,7 +13,7 @@ Output : True (permutations : "taco cat", "atco cta", ...)
 const int CHAR_NUMS = 256;
 int main(){
     
-    std::string str = "tact coa";
+    std::string str = "ttca";
     int c = 0;
     std::vector<char> counter = std::vector<char>(CHAR_NUMS);
     for(int i=0;i <str.length();i++){
