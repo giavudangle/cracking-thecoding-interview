@@ -25,7 +25,7 @@ int main(){
         if (s[j + 1] == t[i]) ++j;
 
         if (s[j + 1] == 0) { // Het xau s
-            std::cout << "Matching at indexes : " << i - j + 1 << std::endl;
+            std::cout << "Matching at index : " << i - j + 1 << std::endl;
             j = nextt[j];
         }
     }
