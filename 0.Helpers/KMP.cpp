@@ -2,31 +2,31 @@
 
 const int MN = 1000111;
 
-int nextt[MN];
+int pi[MN];
 
 int main(){
 
-    char s[MN]= {'A','B','C'};
-    char t[MN]= {'A','B','C','A','B','C'};
+    char s[MN]= {'A','B','D','A','B','D'};
+    char t[MN]= {'A','B','C','D','A','B','D','A','B','D','E','A','B','D'};
 
 
 
     int j;
-    j = nextt[1] = 0;
+    j = pi[1] = 0;
     for (int i = 2; s[i]; ++i) {
-        while (j > 0 && s[j + 1] != s[i]) j = nextt[j];
+        while (j > 0 && s[j + 1] != s[i]) j = pi[j];
         if (s[j + 1] == s[i]) ++j;
-        nextt[i] = j;
+        pi[i] = j;
     }
 
     j = 0;
     for (int i = 1; t[i]; ++i) {
-        while (j > 0 && s[j + 1] != t[i]) j = nextt[j];
+        while (j > 0 && s[j + 1] != t[i]) j = pi[j];
         if (s[j + 1] == t[i]) ++j;
 
         if (s[j + 1] == 0) { // Het xau s
             std::cout << "Matching at index : " << i - j + 1 << std::endl;
-            j = nextt[j];
+            j = pi[j];
         }
     }
     return 0;
