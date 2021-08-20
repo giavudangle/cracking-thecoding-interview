@@ -58,13 +58,3 @@ public:
 
 };
 
-int main(){
-	MyQueue<int>* queue = new MyQueue<int>();
-	queue->push(2);
-	queue->push(99);
-	queue->push(2);
-	queue->pop();
-	std::cout << queue->peek();
-	return 0;
-}
-
