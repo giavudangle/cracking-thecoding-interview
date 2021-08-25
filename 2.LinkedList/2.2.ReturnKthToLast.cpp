@@ -1,9 +1,15 @@
-/*
-    2.2.ReturnKthToLast :
-* Implement an algorithm to find K'th to 
+
+
+/**
+ * .2.ReturnKthToLast :
+ * 
+ * Implement an algorithm to find K'th to 
  * last element of a singly linked list.
  * Note : Size of linked list is not known
-*/
+ * 
+ * 
+ * @author VuDang
+ */
 
 #include <iostream>
 

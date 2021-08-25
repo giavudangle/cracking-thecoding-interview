@@ -1,14 +1,19 @@
-/*
-2.3.DeleteTheMiddleNode :
-* Implement an algorithm to delete a node
-* in the middle (i.e any node but the first
-* and last node. Not necessarily the exact middle)
-* of a singly linked list, given only access to 
-* first node.
-* 
-* ex. delete c from : a -> b -> c -> d -> e -> f
-* output : a -> b -> d -> e -> f
-*/
+
+/**
+ * 2.3.DeleteTheMiddleNode :
+ * 
+ * Implement an algorithm to delete a node
+ * in the middle (i.e any node but the first
+ * and last node. Not necessarily the exact middle)
+ * of a singly linked list, given only access to 
+ * first node.
+ * 
+ * ex. delete c from : a -> b -> c -> d -> e -> f
+ * output : a -> b -> d -> e -> f
+ * 
+ * @author VuDang
+ */
+
 
 #include <iostream>
 

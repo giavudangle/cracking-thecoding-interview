@@ -1,6 +1,16 @@
 #include <iostream>
 #include <vector>
 
+/**
+ * 3.1.ThreeInOne
+ * 
+ * Describe how could you use a single array
+ * to implement three stacks.
+ * 
+ * 
+ * @author VuDang
+ */
+
 class MultiStack
 {
 private:

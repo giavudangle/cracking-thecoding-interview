@@ -1,13 +1,16 @@
-/*
-1.4. Palindrome Permutation : Given a string, write a function to check if it
-is a permutation of a palindrome.A palindrome is a word or phrase that is the same fowards
-and backwards.A permutation is rearrangement of letters.The palindrome does not need to be 
-limited to just dictionary words.
-EXAMPLE :
-Input  : Tact Coma
-Output : True (permutations : "taco cat", "atco cta", ...)
-*/
 
+/**
+ * 1.4. Palindrome Permutation : Given a string, write a function to check if it
+ * is a permutation of a palindrome.A palindrome is a word or phrase that is the same fowards
+ * and backwards.A permutation is rearrangement of letters.The palindrome does not need to be 
+ * limited to just dictionary words.
+ * 
+ * ex. Input : Tact Coa
+ * Output : True (permutations : "taco cat", "atco cta", etc.) 
+ * 
+ * 
+ * @author VuDang
+ */
 
 #include <bits/stdc++.h>
 const int CHAR_NUMS = 256;

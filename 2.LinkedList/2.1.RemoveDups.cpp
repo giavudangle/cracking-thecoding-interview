@@ -1,8 +1,13 @@
-/*
-    2.1.Remove Dups : Write code to remove duplicates from an unsorted list
-    Solve this problem if a temporary buffer is not allowed;
-*/
-
+/**
+ * 2.1.Remove Dups : 
+ * 
+ * Write code to remove duplicates from unsorted linked list
+ * 
+ * FOLLOW UP : How would you solve this problem 
+ * if temporary buffer is not allowed.
+ * 
+ * @author VuDang
+ */
 
 #include <iostream>
 

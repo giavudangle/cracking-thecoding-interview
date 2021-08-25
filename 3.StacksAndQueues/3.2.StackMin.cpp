@@ -1,3 +1,15 @@
+/**
+ * 3.2. StackMin
+ * 
+ * How would you design a stack which, in addition to push and pop, 
+ * has a function min() which returns a minimum element? Push, pop 
+ * and min, all should operate in O(1) time
+ * 
+ * 
+ * @author VuDang
+ */
+
+
 #include <iostream>
 
 template <typename T>

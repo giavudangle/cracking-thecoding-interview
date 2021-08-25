@@ -1,10 +1,14 @@
-/*
-2.6.Palindrome : Implement a function to check if a linkedlist is a palindrome
 
-Example:
-Input: (6 -> 1 -> 6) 
-Output: true
-*/
+/**
+ * 2.6.Palindrome :
+ * 
+ * Implement a function to check if a linked
+ * list is a palindrome.
+ * 
+ * </br>
+ * 
+ * @author VuDang
+ */
 
 #include <iostream>
 

@@ -1,15 +1,15 @@
-/* 1.7.Rotate Matrix : Given an image represented by an NxN
-where each pixels in the image is 4bytes.Wriate a method to
-rotate the image by 90 degrees.
-*/
 
-/*
-1 2 3
-4 5 6
-7 8 9
-Rotate 90%:
 
-*/
+/**
+ * 1.7.Rotate Matrix :
+ * 
+ * Given an image represented by an N X N matrix, where
+ * each pixel in the image is 4 bytes, write a method to
+ * rotate the image by 90 degrees. Can you do this in place.
+ * 
+ * 
+ * @author Vudang
+ */
 
 #include <iostream>
 #include <vector>

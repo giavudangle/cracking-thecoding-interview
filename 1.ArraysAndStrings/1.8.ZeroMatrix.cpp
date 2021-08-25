@@ -1,8 +1,15 @@
-/* 1.8.Zero Matrix : Write an algorithm such that if an element in an MxN matrix is 0, its
-entire row an column are set to 0
-*/
 
 
+/**
+ * 1.8.Zero Matrix :
+ * 
+ * Write an algorithm such that if an element in an
+ * M X N matrix is 0, it's entire row and column are
+ * set to 0.
+ * 
+ * 
+ * @author VuDang
+ */
 #include <iostream>
 #include <vector>
 #include <map>
