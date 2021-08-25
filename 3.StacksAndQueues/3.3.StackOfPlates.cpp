@@ -139,16 +139,24 @@ public:
         }
     }
 
-    int pop() {
+    T pop() {
         MyStack<T>* lastestStack = getLastestStack();
         if (lastestStack == nullptr) {
-            return -1;
+            return NULL;
         }
-        int v = lastestStack->pop();
+        T v = lastestStack->pop();
         if (lastestStack->getSize() == 0) {
             listOfStacks.erase(listOfStacks.end() - 1);
         }
         return v;
+    }
+
+    T popAt(int idx) {
+        if (idx >= listOfStacks.size()) {
+            return NULL;
+        }
+        T res = listOfStacks[idx]->pop();
+        return res;
     }
 };
 
@@ -165,6 +173,7 @@ int main()
     setOfStacks->push(5);
     setOfStacks->push(99);
     std::cout << setOfStacks->pop();
+    std::cout << setOfStacks->popAt(1);
 
 
     return 0;
