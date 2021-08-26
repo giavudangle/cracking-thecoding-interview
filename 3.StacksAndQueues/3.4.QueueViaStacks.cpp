@@ -1,20 +1,10 @@
 /**
- * 3.3. Stack Of Plates
- * Imagine a stack of plates. If the stack gets too high, it might topple.
- * Therefore, in real life, we would literally start a new stack when the
- * previous stack exceeds some threshold. Implement a data structure,
- * SetOfStacks which mimics this. SetOfStacks should be composed of several
- * stacks and should create a new stack once the previous one exceeds capacity.
- * SetOfStacks.push() and SetOfStacks.pop() should behave identically to a
- * single stack (that is, pop() should return the same values as it would if
- * there were just a single stack.)
+ * 3.4. Queue Via Stacks
  *
- * FOLLOW UP : Implement a function popAt(int index) which performs a pop
- * function on a specific sub-stack.
+ * Implement a MyQueue class which implements a queue using two stacks.
  *
- * </br>
  *
- * @author Vudang
+ * @author VuDang
  */
 
 #include <iostream>
@@ -44,7 +34,7 @@ public:
     {
         if (top == nullptr)
         {
-            return -1;
+            return NULL;
         }
         T item = top->data;
         top = top->next;
@@ -78,103 +68,57 @@ public:
     }
 };
 
-template <typename T>
-class SetOfStacks
-{
+template<typename T>
+class MyQueue {
 private:
-    std::vector<MyStack<T>*> listOfStacks;
-    const int THRESHOLD = 3;
-
-    void createStackThenPush(T item)
-    {
-        MyStack<T>* stack = new MyStack<T>();
-        stack->push(item);
-        listOfStacks.emplace_back(stack);
-    }
-
-    MyStack<T>* getLastestStack()
-    {
-        if (!listOfStacks.empty())
-            return listOfStacks[listOfStacks.size() - 1];
-        
-    }
-
-    int getSetSize()
-    {
-        if (listOfStacks.empty())
-        {
-            return 0;
-        }
-        int total = 0;
-        for (MyStack<T> x : listOfStacks)
-        {
-            total += x.getSize();
-        }
-        return total;
-    }
+    MyStack<T>* stackNewest;
+    MyStack<T>* stackLastest;
 
 public:
-    SetOfStacks()
-    {
+    MyQueue() {
+        stackNewest = new MyStack<T>();
+        stackLastest = new MyStack<T>();
     }
 
-    void push(T item)
-    {
+    int getSize() {
+        return this->stackLastest->getSize() + this->stackNewest->getSize();
+    }
 
-        if (listOfStacks.size() == 0)
-        {
-            createStackThenPush(item);
-        }
-        else
-        {
-            MyStack<T>* lastestStack = getLastestStack();
-            if (lastestStack->getSize() > 0) {
-                if (lastestStack->getSize() >= THRESHOLD) {
-                    createStackThenPush(item);
-                }
-                else {
-                    lastestStack->push(item);
-                }
+    void enqueue(T value) {
+        stackNewest->push(value);
+    }
+
+    void shift() {
+        if (stackLastest->isEmpty()) {
+            while (!stackNewest->isEmpty()) {
+                stackLastest->push(stackNewest->pop());
             }
         }
     }
-
-    T pop() {
-        MyStack<T>* lastestStack = getLastestStack();
-        if (lastestStack == nullptr) {
-            return NULL;
-        }
-        T v = lastestStack->pop();
-        if (lastestStack->getSize() == 0) {
-            listOfStacks.erase(listOfStacks.end() - 1);
-        }
-        return v;
+    
+    T peek() {
+        shift();
+        return stackLastest->peek();
     }
 
-    T popAt(int idx) {
-        if (idx >= listOfStacks.size()) {
-            return NULL;
-        }
-        T res = listOfStacks[idx]->pop();
-        return res;
+    T dequeue() {
+        shift();
+        return stackLastest->pop();
     }
 };
 
+
+
 int main()
 {
-    SetOfStacks<int>* setOfStacks = new SetOfStacks<int>();
-    setOfStacks->push(3);
-    setOfStacks->push(4);
-    setOfStacks->push(5);
-    setOfStacks->push(5);
-    setOfStacks->push(5);
-    setOfStacks->push(5);
-    setOfStacks->push(5);
-    setOfStacks->push(5);
-    setOfStacks->push(99);
-    std::cout << setOfStacks->pop();
-    std::cout << setOfStacks->popAt(1);
-
+    MyQueue<int>* queue = new MyQueue<int>();
+    queue->enqueue(1);
+    queue->enqueue(2);
+    queue->enqueue(3);
+    queue->enqueue(4);
+    queue->enqueue(5);
+    queue->dequeue();
+    std::cout << queue->peek();
 
     return 0;
-}
+}   
