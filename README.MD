@@ -30,8 +30,8 @@ C++ Solutions for Cracking the Coding Interview - 6th Edition
 - [X] [05 - Sort Stack](../master/src/com/deepak/ctci/Ch03_Stacks_And_Queues/Problem_05.java)
 - [X] [06 - Animal Shelter](../master/src/com/deepak/ctci/Ch03_Stacks_And_Queues/Problem_06.java)
 
-**Ch 04 - Trees and Graphs**
-- [ ] 01 - Route Between Nodes
+**Chapter 04 - Trees and Graphs**
+- [X] 01 - Route Between Nodes
 - [X] [02 - Minimal Tree](../master/src/com/deepak/ctci/Ch04_Trees_And_Graphs/Problem_02.java)
 - [X] [03 - List of Depths](../master/src/com/deepak/ctci/Ch04_Trees_And_Graphs/Problem_03.java)
 - [X] [04 - Check Balanced](../master/src/com/deepak/ctci/Ch04_Trees_And_Graphs/Problem_04.java)
