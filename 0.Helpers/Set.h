@@ -27,7 +27,7 @@ public:
     void PreOrderTraversal(Node* root) {
         if (root == NULL) {
             return;
-        }
+        } 
         std::cout << root->data << " ";
         PreOrderTraversal(root->left);
         PreOrderTraversal(root->right);
@@ -72,6 +72,53 @@ public:
             return root;
         }
 
+    }
+
+    Node* minValueNode(Node* root) {
+        Node<T>* current = root;
+        while (current && current->left != NULL) {
+            current = current->left;
+        }
+        return current;
+    }
+
+    Node* maxValueNode(Node* root) {
+        Node<T>* current = root;
+        while (current && current->right != NULL) {
+            current = current->right;
+        }
+        return current;
+    }
+
+    Node* deleteNode(Node* root, T d) {
+        if (root == NULL) {
+            return root;
+        }
+
+        if (d < root->data) {
+            root->left = deleteNode(root->left, d);
+        }
+        else if (d > root->data) {
+            root->right = deleteNode(root->right, d);
+        }
+        else {
+            if (root->left == NULL && root->right == NULL) {
+                return NULL;
+            }
+            else if (root->left == NULL) {
+                Node<T>* tmp = root->right;
+                return tmp;
+            }
+            else if (root->right == NULL) {
+                Node<T>* tmp = root->left;
+                return tmp;
+            }
+
+            Node* tmp = minValueNode(root->right);
+            root->data = tmp->data;
+            root->right = deleteNode(root->right, tmp->data);
+        }
+        return root;
     }
 
 };
@@ -279,6 +326,10 @@ public:
         root->InOrderTraversal(root);
         std::cout << "}" << std::endl;
     }
+
+    Node<T>* deleteNodeInSet(T d) {
+        return root->deleteNode(root, d);
+    }
 };
 
 
@@ -308,110 +359,113 @@ int main()
     A.add(2);
     A.add(3);
     A.add(2);
-
-    std::cout << "A = ";
     A.displaySet();
-    std::cout << "P(A) = " << std::endl;
-    A.displayPowerSet();
+    A.deleteNodeInSet(2);
+    A.displaySet();
+
+  //  std::cout << "A = ";
+  //  A.displaySet();
+  //  std::cout << "P(A) = " << std::endl;
+  //  A.displayPowerSet();
 
 
-    // Check if Set A contains some elements
-    std::cout << "A " << (A.isContains(3) ? "contains"
-        : "does not contain")
-        << " 3" << std::endl;
-    std::cout << "A " << (A.isContains(4) ? "contains"
-        : "does not contain")
-        << " 4" << std::endl;
-    std::cout << std::endl;
+  //  // Check if Set A contains some elements
+  //  std::cout << "A " << (A.isContains(3) ? "contains"
+  //      : "does not contain")
+  //      << " 3" << std::endl;
+  //  std::cout << "A " << (A.isContains(4) ? "contains"
+  //      : "does not contain")
+  //      << " 4" << std::endl;
+  //  std::cout << std::endl;
 
-    // Create Set B
-    MySet<int> B;
+  //  // Create Set B
+  //  MySet<int> B;
 
-    // Insert elements to Set B
-    B.add(1);
-    B.add(2);
-    B.add(4);
+  //  // Insert elements to Set B
+  //  B.add(1);
+  //  B.add(2);
+  //  B.add(4);
 
-    // Display the contents of Set B
-    std::cout << "B = ";
-    B.displaySet();
-    std::cout << "P(B) = " << std::endl;
-    B.displayPowerSet();
-    std::cout << std::endl;
+  //  // Display the contents of Set B
+  //  std::cout << "B = ";
+  //  B.displaySet();
+  //  std::cout << "P(B) = " << std::endl;
+  //  B.displayPowerSet();
+  //  std::cout << std::endl;
 
-    // Create Set C
-    MySet<int> C;
-    C.add(1);
-    C.add(2);
-    C.add(4);
+  //  // Create Set C
+  //  MySet<int> C;
+  //  C.add(1);
+  //  C.add(2);
+  //  C.add(4);
 
-    // Display the contents of Set C
-    std::cout << "C = ";
-    C.displaySet();
-    std::cout << std::endl;
+  //  // Display the contents of Set C
+  //  std::cout << "C = ";
+  //  C.displaySet();
+  //  std::cout << std::endl;
 
-    // Set F contains the difference
-    // of the Sets A and B
-    MySet<int> F = A - B;
-    std::cout << "A - B = ";
-    F.displaySet();
-    std::cout << std::endl;
-
-
-    // Set D contains the union
-  // of the Sets A and B
-    MySet<int> D = A.unionSet(B);
-    std::cout << "A union B = ";
-    D.displaySet();
-    std::cout << std::endl;
+  //  // Set F contains the difference
+  //  // of the Sets A and B
+  //  MySet<int> F = A - B;
+  //  std::cout << "A - B = ";
+  //  F.displaySet();
+  //  std::cout << std::endl;
 
 
-    // Set E contains the intersection
-    // of the Sets A and B
-    MySet<int> E = A.intersectionSet(B);
-    std::cout << "A intersection B = ";
-    E.displaySet();
-    std::cout << std::endl;
+  //  // Set D contains the union
+  //// of the Sets A and B
+  //  MySet<int> D = A.unionSet(B);
+  //  std::cout << "A union B = ";
+  //  D.displaySet();
+  //  std::cout << std::endl;
 
-    // Display the product
-    std::cout << "A x B = ";
-    A.displayProduct(B);
-    std::cout << std::endl;
 
-    // Equality tests
-    std::cout << "Equality of Sets:" << std::endl;
+  //  // Set E contains the intersection
+  //  // of the Sets A and B
+  //  MySet<int> E = A.intersectionSet(B);
+  //  std::cout << "A intersection B = ";
+  //  E.displaySet();
+  //  std::cout << std::endl;
 
-    std::cout << "A "
-        << ((A == B) ? "" : "!") << "= B"
-        << std::endl;
-    std::cout << "B "
-        << ((B == C) ? "" : "!") << "= C"
-        << std::endl;
-    std::cout << "A "
-        << ((A == C) ? "" : "!") << "= C"
-        << std::endl;
-    std::cout << std::endl;
+  //  // Display the product
+  //  std::cout << "A x B = ";
+  //  A.displayProduct(B);
+  //  std::cout << std::endl;
 
-    MySet<int> U;
-    U.add(1);
-    U.add(2);
-    U.add(3);
-    U.add(4);
-    U.add(5);
-    U.add(6);
-    U.add(7);
+  //  // Equality tests
+  //  std::cout << "Equality of Sets:" << std::endl;
 
-    // Complements of the respective Sets
-    MySet<int> A1 = A.complementSet(U);
-    MySet<int> B1 = B.complementSet(U);
-    MySet<int> C1 = C.complementSet(U);
+  //  std::cout << "A "
+  //      << ((A == B) ? "" : "!") << "= B"
+  //      << std::endl;
+  //  std::cout << "B "
+  //      << ((B == C) ? "" : "!") << "= C"
+  //      << std::endl;
+  //  std::cout << "A "
+  //      << ((A == C) ? "" : "!") << "= C"
+  //      << std::endl;
+  //  std::cout << std::endl;
 
-    std::cout << "A' = ";
-    A1.displaySet();
-    std::cout << "B' = ";
-    B1.displaySet();
-    std::cout << "C' = ";
-    C1.displaySet();
+  //  MySet<int> U;
+  //  U.add(1);
+  //  U.add(2);
+  //  U.add(3);
+  //  U.add(4);
+  //  U.add(5);
+  //  U.add(6);
+  //  U.add(7);
+
+  //  // Complements of the respective Sets
+  //  MySet<int> A1 = A.complementSet(U);
+  //  MySet<int> B1 = B.complementSet(U);
+  //  MySet<int> C1 = C.complementSet(U);
+
+  //  std::cout << "A' = ";
+  //  A1.displaySet();
+  //  std::cout << "B' = ";
+  //  B1.displaySet();
+  //  std::cout << "C' = ";
+  //  C1.displaySet();
 
 
     return 0;
